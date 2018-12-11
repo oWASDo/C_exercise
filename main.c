@@ -27,11 +27,20 @@ int main(int argc, char const *argv[])
 		goto cleanup3;
 	}
 
-    int timer;
-    uint32 last_tick = SDL_GetTicks();
-    SDL_Event event;
+    int timer = 0;
+    Uint32 last_tick = SDL_GetTicks();
     for(;;)
     {
+        SDL_Event event;
+        Uint32 current_tick = SDL_GetTicks();
+        timer += current_tick - last_tick;
+        last_tick = current_tick;
+
+        if(timer > 600)
+        {
+            //SDL_Log("Timer: %i",timer);
+            timer = 0;
+        }        
         while (SDL_PollEvent(&event))
 		{
 			if (event.type == SDL_QUIT)
