@@ -1,5 +1,5 @@
 
-#include "SDL.h"
+#include ".\SDL\SDL.h"
 
 
 #define HEIGHT 800

@@ -1,4 +1,4 @@
-#include "SDL.h"
+#include "header.h"
 
 SDL_Texture load_texture(const char *file, SDL_Renderer *renderer)
 {

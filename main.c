@@ -26,6 +26,9 @@ int main(int argc, char const *argv[])
 		ret = -1;
 		goto cleanup3;
 	}
+
+    int timer;
+    uint32 last_tick = SDL_GetTicks();
     SDL_Event event;
     for(;;)
     {
