@@ -1,6 +1,6 @@
-#include "SDL.h"
+#include "header.h"
 
-SDL_Texture load_texture(const char *file, SDL_Renderer *renderer)
+SDL_Texture* load_texture(const char *file, SDL_Renderer *renderer)
 {
     SDL_Surface *surface = SDL_LoadBMP(file);
     if (surface == NULL)
@@ -17,8 +17,8 @@ SDL_Texture load_texture(const char *file, SDL_Renderer *renderer)
     }
     return texture;
 }
-void render_image(SDL_Texture *texture, SDL_Renderer *renderer, const SDL_Rect s_rect, const SDL_Rect d_rect, const double angel, const SDL_Point center,const SDL_RendererFlip flip)
+void render_image(SDL_Texture *texture, SDL_Renderer *renderer, const SDL_Rect *s_rect, const SDL_Rect *d_rect, const double angel, const SDL_Point *center,const SDL_RendererFlip flip)
 {
 
-    SDL_RenderCopyEx(renderer, texture, s_rect, d_rect, angel, cente, flip);
+    SDL_RenderCopyEx(renderer, texture, s_rect, d_rect, angel, center, flip);
 }
